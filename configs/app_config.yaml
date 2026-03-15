@@ -1,0 +1,28 @@
+project:
+  name: healthcare_claims_lakehouse
+  app_name: HealthcareClaimsLakehouseLocal
+
+paths:
+  base_dir: .
+  landing_dir: data/landing
+  bronze_dir: data/bronze
+  silver_dir: data/silver
+  gold_dir: data/gold
+  checkpoints_dir: data/checkpoints
+
+tables:
+  bronze_claims: bronze/claims
+  bronze_members: bronze/members
+  bronze_providers: bronze/providers
+  bronze_payments: bronze/payments
+
+  silver_claims: silver/claims
+  silver_members: silver/members
+  silver_providers: silver/providers
+  silver_payments: silver/payments
+
+  gold_claim_cost_by_month: gold/claim_cost_by_month
+
+runtime:
+  shuffle_partitions: 4
+  timezone: Asia/Kolkata
