@@ -106,6 +106,7 @@ healthcare_claims_lakehouse/
 ├── requirements.txt         # Python dependencies
 └── README.md                # Project documentation
 
+```
 ## Key Features
 
 - Local lakehouse implementation using **PySpark** and **Delta Lake**
