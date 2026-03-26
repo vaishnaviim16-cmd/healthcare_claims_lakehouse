@@ -1,7 +1,6 @@
 # Healthcare Claims Lakehouse
 
-A production-style local data engineering project that simulates a modern healthcare claims platform using **PySpark** and **Delta Lake**.  
-The project is designed to demonstrate how raw healthcare data can be ingested, validated, transformed, and modeled into analytics-ready datasets using a **Bronze, Silver, and Gold** lakehouse architecture.
+Built an end-to-end Healthcare Claims Lakehouse using PySpark and Delta Lake with Bronze-Silver-Gold architecture, schema-drift handling, reject management, SCD Type 2 provider dimension, core dimensional modeling, and Gold marts for claim cost, denial analysis, provider performance, member utilization, and turnaround metrics
 
 ---
 ### Author
