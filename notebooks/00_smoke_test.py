@@ -1,35 +1,45 @@
+import sys
 from pathlib import Path
 import shutil
+import time
 
+project_root = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(project_root))
+
+from pyspark.sql import Row
 from src.common.spark_session import get_spark_session
-from src.common.utils import project_root, ensure_dir
 
 
 def main():
-    spark = get_spark_session()
-    root = project_root()
+    spark = None
+    output_path = project_root / "data" / "smoke" / "delta_output"
 
-    output_path = root / "data" / "bronze" / "smoke_test"
-    if output_path.exists():
-        shutil.rmtree(output_path)
+    try:
+        spark = get_spark_session()
 
-    ensure_dir(output_path.parent)
+        data = [
+            Row(id=1, name="Vaishnavi"),
+            Row(id=2, name="Amit"),
+            Row(id=3, name="Neha"),
+        ]
 
-    data = [
-        (1, "Vaishnavi"),
-        (2, "Amit"),
-        (3, "Neha")
-    ]
+        df = spark.createDataFrame(data)
 
-    df = spark.createDataFrame(data, ["id", "name"])
+        if output_path.exists():
+            shutil.rmtree(output_path, ignore_errors=True)
 
-    df.write.format("delta").mode("overwrite").save(str(output_path))
+        df.write.format("delta").mode("overwrite").save(str(output_path))
 
-    read_df = spark.read.format("delta").load(str(output_path))
-    read_df.show()
+        read_df = spark.read.format("delta").load(str(output_path))
+        read_df.show()
 
-    print("Delta smoke test completed successfully.")
-    spark.stop()
+        print("Delta smoke test completed successfully.")
+
+    finally:
+        if spark is not None:
+            spark.catalog.clearCache()
+            spark.stop()
+            time.sleep(5)
 
 
 if __name__ == "__main__":

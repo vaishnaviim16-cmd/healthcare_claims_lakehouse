@@ -2,10 +2,10 @@
 __pycache__/
 *.pyc
 .ipynb_checkpoints/
-data/bronze/
-data/silver/
-data/gold/
-data/checkpoints/
 spark-warehouse/
 .metastore/
 .DS_Store
+data/
+docs/
+notebooks/artifacts
+tmp/

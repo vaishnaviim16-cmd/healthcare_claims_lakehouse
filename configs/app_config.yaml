@@ -17,11 +17,26 @@ tables:
   bronze_payments: bronze/payments
 
   silver_claims: silver/claims
+  silver_claims_rejects: silver/claims_rejects
   silver_members: silver/members
+  silver_members_rejects: silver/members_rejects
   silver_providers: silver/providers
+  silver_providers_rejects: silver/providers_rejects
   silver_payments: silver/payments
+  silver_payments_rejects: silver/payments_rejects
 
-  gold_claim_cost_by_month: gold/claim_cost_by_month
+  dim_member_current: gold/dim_member_current
+  dim_provider_current: gold/dim_provider_current
+  dim_provider_scd2: gold/dim_provider_scd2
+
+  fact_claim: gold/fact_claim
+  fact_payment: gold/fact_payment
+
+  gold_claim_cost_by_month: gold/marts/claim_cost_by_month
+  gold_denial_analysis: gold/marts/denial_analysis
+  gold_provider_performance: gold/marts/provider_performance
+  gold_member_utilization: gold/marts/member_utilization
+  gold_claim_turnaround_time: gold/marts/claim_turnaround_time
 
 runtime:
   shuffle_partitions: 4
