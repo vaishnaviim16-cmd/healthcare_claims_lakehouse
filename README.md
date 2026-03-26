@@ -4,6 +4,12 @@ A production-style local data engineering project that simulates a modern health
 The project is designed to demonstrate how raw healthcare data can be ingested, validated, transformed, and modeled into analytics-ready datasets using a **Bronze, Silver, and Gold** lakehouse architecture.
 
 ---
+### Author
+
+Vaishnavi Mendre
+Data Engineer | PySpark | SQL | Delta Lake | AWS | Data Bricks
+
+---
 
 ## Project Overview
 
@@ -203,13 +209,6 @@ python notebooks/01_data_generator.py
 - Data quality reporting dashboard
 - Orchestration using Airflow or Control-M style scheduling
 - Cloud version using AWS or Databricks
-
----
-
-### Author
-
-Vaishnavi Mendre
-Data Engineer | PySpark | SQL | Delta Lake | AWS
 
 ---
 
